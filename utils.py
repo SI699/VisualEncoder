@@ -5,6 +5,8 @@ import torch
 import random
 import numpy as np
 import os
+import wandb
+import torchvision
 
 
 def set_all_random_seed(seed, rank=0):
@@ -38,6 +40,9 @@ class RunningAverage():
 
     def __call__(self):
         return self.total / float(self.steps)
+
+    def __str__(self):
+        return str(self.total / float(self.steps))
 
 
 def set_logger(log_path, level=logging.INFO):
@@ -141,3 +146,9 @@ def load_checkpoint(checkpoint_path, model, optimizer=None):
         optimizer.load_state_dict(checkpoint['optim_R_dict'])
 
     return checkpoint['epoch']
+
+
+def make_grid(tensor, caption, nrow=8):
+    img_grid = torchvision.utils.make_grid(tensor, nrow=nrow)
+    log_img = wandb.Image(img_grid, caption=caption)
+    return log_img
