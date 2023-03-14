@@ -96,23 +96,23 @@ class Decoder(nn.Module):
                                           font_channels,
                                           kernel_size=2,
                                           stride=2)
-        self.conv = nn.Conv2d(4, 4, kernel_size=3, padding=1)
+        self.conv1 = nn.Conv2d(4, 4, kernel_size=3, padding=1)
         self.conv2 = nn.Conv2d(1, 1, kernel_size=3, padding=1)
-        self.gelu = nn.LeakyReLU(negative_slope=0.2)
+        self.act = nn.LeakyReLU(negative_slope=0.2)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         x = rearrange(x, 'b (c h w) -> b c h w', h=2, w=2)
         x = self.deconv1(x)
-        x = self.gelu(x)
+        x = self.act(x)
         x = self.deconv2(x)
-        x = self.gelu(x)
+        x = self.act(x)
         x = self.deconv3(x)
-        x = self.gelu(x)
-        x = self.conv(x)
-        x = self.gelu(x)
+        x = self.act(x)
+        x = self.conv1(x)
+        x = self.act(x)
         x = self.deconv4(x)
-        x = self.gelu(x)
+        x = self.act(x)
         x = self.conv2(x)
         x = self.sigmoid(x)
         return x
