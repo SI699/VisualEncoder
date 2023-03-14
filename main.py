@@ -9,7 +9,7 @@ from torch import optim
 from dataset import HanziDataset
 from trainer import Trainer
 from utils import set_all_random_seed, set_logger
-from model import create_ASAIAANet
+from model import create_AutoEncoder
 
 from torch.utils.tensorboard import SummaryWriter
 
@@ -116,6 +116,7 @@ if __name__ == '__main__':
     parser = set_parse()
     args = parser.parse_args()
     wandb_config, trainer_config = create_configs(args)
+    #TODO: use tensorboard to save model visualization
     #tb_writer = SummaryWriter(log_dir=args.save_dir)
 
     set_all_random_seed(args.seed)
