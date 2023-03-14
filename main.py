@@ -10,7 +10,7 @@ from dataset import HanziDataset
 from trainer import Trainer
 from utils import set_all_random_seed, set_logger
 from model import create_AutoEncoder
-from metrics import ssim_score
+from metrics import ssim_score, psnr_score
 
 from torch.utils.tensorboard import SummaryWriter
 
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                                  num_workers=8,
                                  pin_memory=True)
 
-    metrics = {'ssim': ssim_score}
+    metrics = {'ssim': ssim_score, 'psnr': psnr_score}
     mse_loss = torch.nn.MSELoss()
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                 step_size=20,

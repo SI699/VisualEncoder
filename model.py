@@ -3,7 +3,7 @@ from einops import rearrange
 
 
 def create_AutoEncoder(args):
-    return AutoEncoder(embedding_dim=512, kernel_size=5, font_channels=1)
+    return AutoEncoder(embedding_dim=768, kernel_size=5, font_channels=1)
 
 
 def parse_model(yaml_config):
@@ -49,7 +49,7 @@ class TianzigeCNN(nn.Module):
                  kernel_size=5,
                  font_channels=1,
                  embedding_dim=512,
-                 dropout=0.3):
+                 dropout=0.1):
         super(TianzigeCNN, self).__init__()
         padding = kernel_size // 2
         self.conv1 = nn.Conv2d(font_channels,
@@ -66,7 +66,7 @@ class TianzigeCNN(nn.Module):
                                embedding_dim // 4,
                                kernel_size=1,
                                padding=0)
-        self.gelu = nn.GELU()
+        self.gelu = nn.LeakyReLU(negative_slope=0.2)
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
@@ -87,15 +87,18 @@ class Decoder(nn.Module):
     def __init__(self, embedding_dim=512, font_channels=1):
         super(Decoder, self).__init__()
         self.deconv1 = nn.ConvTranspose2d(embedding_dim // 4,
-                                          32,
+                                          48,
                                           kernel_size=2,
                                           stride=2)
-        self.deconv2 = nn.ConvTranspose2d(32, 8, kernel_size=2, stride=2)
-        self.deconv3 = nn.ConvTranspose2d(8,
+        self.deconv2 = nn.ConvTranspose2d(48, 12, kernel_size=2, stride=2)
+        self.deconv3 = nn.ConvTranspose2d(12, 4, kernel_size=2, stride=2)
+        self.deconv4 = nn.ConvTranspose2d(4,
                                           font_channels,
-                                          kernel_size=4,
-                                          stride=4)
-        self.gelu = nn.GELU()
+                                          kernel_size=2,
+                                          stride=2)
+        self.conv = nn.Conv2d(4, 4, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(1, 1, kernel_size=3, padding=1)
+        self.gelu = nn.LeakyReLU(negative_slope=0.2)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
@@ -105,5 +108,11 @@ class Decoder(nn.Module):
         x = self.deconv2(x)
         x = self.gelu(x)
         x = self.deconv3(x)
+        x = self.gelu(x)
+        x = self.conv(x)
+        x = self.gelu(x)
+        x = self.deconv4(x)
+        x = self.gelu(x)
+        x = self.conv2(x)
         x = self.sigmoid(x)
         return x
