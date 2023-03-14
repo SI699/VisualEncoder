@@ -1,0 +1,50 @@
+2023-03-14 16:53:18,074 INFO    MainThread:22987 [internal.py:wandb_internal():92] W&B internal server running at pid: 22987, started at: 2023-03-14 16:53:18.073667
+2023-03-14 16:53:18,082 INFO    WriterThread:22987 [datastore.py:open_for_write():77] open: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/run-32wgr8gc.wandb
+2023-03-14 16:53:18,085 DEBUG   SenderThread:22987 [sender.py:send():235] send: header
+2023-03-14 16:53:18,086 DEBUG   SenderThread:22987 [sender.py:send():235] send: run
+2023-03-14 16:53:18,271 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: check_version
+2023-03-14 16:53:18,287 INFO    SenderThread:22987 [dir_watcher.py:__init__():169] watching files in: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files
+2023-03-14 16:53:18,288 INFO    SenderThread:22987 [sender.py:_start_run_threads():812] run started: 32wgr8gc with start time 1678827196
+2023-03-14 16:53:18,288 DEBUG   SenderThread:22987 [sender.py:send():235] send: summary
+2023-03-14 16:53:18,288 INFO    SenderThread:22987 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:53:18,289 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: check_version
+2023-03-14 16:53:18,420 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: run_start
+2023-03-14 16:53:19,295 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/wandb-summary.json
+2023-03-14 16:53:21,862 DEBUG   HandlerThread:22987 [meta.py:__init__():37] meta init
+2023-03-14 16:53:21,863 DEBUG   HandlerThread:22987 [meta.py:__init__():51] meta init done
+2023-03-14 16:53:21,863 DEBUG   HandlerThread:22987 [meta.py:probe():211] probe
+2023-03-14 16:53:21,877 DEBUG   HandlerThread:22987 [meta.py:_setup_git():201] setup git
+2023-03-14 16:53:21,896 DEBUG   HandlerThread:22987 [meta.py:_setup_git():208] setup git done
+2023-03-14 16:53:21,896 DEBUG   HandlerThread:22987 [meta.py:_save_pip():55] save pip
+2023-03-14 16:53:21,898 DEBUG   HandlerThread:22987 [meta.py:_save_pip():69] save pip done
+2023-03-14 16:53:21,898 DEBUG   HandlerThread:22987 [meta.py:_save_conda():76] save conda
+2023-03-14 16:53:22,296 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/conda-environment.yaml
+2023-03-14 16:53:22,297 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/requirements.txt
+2023-03-14 16:53:24,297 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/output.log
+2023-03-14 16:53:29,302 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/conda-environment.yaml
+2023-03-14 16:53:29,483 DEBUG   HandlerThread:22987 [meta.py:_save_conda():86] save conda done
+2023-03-14 16:53:29,483 DEBUG   HandlerThread:22987 [meta.py:probe():249] probe done
+2023-03-14 16:53:29,492 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:53:29,494 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:53:29,689 DEBUG   SenderThread:22987 [sender.py:send():235] send: telemetry
+2023-03-14 16:53:29,689 DEBUG   SenderThread:22987 [sender.py:send():235] send: config
+2023-03-14 16:53:29,689 DEBUG   SenderThread:22987 [sender.py:send():235] send: files
+2023-03-14 16:53:29,690 INFO    SenderThread:22987 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2023-03-14 16:53:30,255 INFO    Thread-17 :22987 [upload_job.py:push():137] Uploaded file /tmp/tmpxjsagmuuwandb/3976s4hd-wandb-metadata.json
+2023-03-14 16:53:30,302 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/wandb-metadata.json
+2023-03-14 16:53:43,430 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:53:43,431 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:53:49,311 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/config.yaml
+2023-03-14 16:53:50,178 DEBUG   SenderThread:22987 [sender.py:send():235] send: stats
+2023-03-14 16:53:58,631 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:53:58,631 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:54:13,832 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:54:13,832 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:54:14,324 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/output.log
+2023-03-14 16:54:20,463 DEBUG   SenderThread:22987 [sender.py:send():235] send: stats
+2023-03-14 16:54:28,996 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:54:28,996 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:54:44,140 DEBUG   HandlerThread:22987 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:54:44,141 DEBUG   SenderThread:22987 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:54:46,342 INFO    Thread-13 :22987 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165316-32wgr8gc/files/output.log
+2023-03-14 16:54:50,748 DEBUG   SenderThread:22987 [sender.py:send():235] send: stats

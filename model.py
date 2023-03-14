@@ -3,16 +3,14 @@ from einops import rearrange
 
 
 def create_AutoEncoder(args):
-    return AutoEncoder(embedding_dim=args.feature_channels_num,
-                       kernel_size=args.kernel_size,
-                       font_channels=args.font_channels_num)
+    return AutoEncoder(embedding_dim=512, kernel_size=5, font_channels=1)
 
 
 def parse_model(yaml_config):
     pass
 
-class ConvBlock:
 
+class ConvBlock:
     def __init__(self, in_channels, out_channels, kernel_size, padding, stride,
                  output_size):
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, padding,
@@ -25,7 +23,6 @@ class ConvBlock:
 
 
 class DeconvBlock:
-
     def __init__(self, in_channels, out_channels, kernel_size, padding, stride):
         self.deconv = nn.ConvTranspose2d(in_channels, out_channels, kernel_size,
                                          padding, stride)
@@ -35,8 +32,7 @@ class DeconvBlock:
         return self.gelu(self.deconv(x))
 
 
-class AutoEncoder:
-
+class AutoEncoder(nn.Module):
     def __init__(self, embedding_dim=512, kernel_size=5, font_channels=1):
         super(AutoEncoder, self).__init__()
         self.encoder = TianzigeCNN(kernel_size, font_channels, embedding_dim)
@@ -49,7 +45,6 @@ class AutoEncoder:
 
 
 class TianzigeCNN(nn.Module):
-
     def __init__(self,
                  kernel_size=5,
                  font_channels=1,
@@ -89,7 +84,6 @@ class TianzigeCNN(nn.Module):
 
 
 class Decoder(nn.Module):
-
     def __init__(self, embedding_dim=512, font_channels=1):
         super(Decoder, self).__init__()
         self.deconv1 = nn.ConvTranspose2d(embedding_dim // 4,

@@ -1,0 +1,10 @@
+
+  0%|                                             | 0/22 [00:07<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/junjayz/VisualEncoder/main.py", line 170, in <module>
+    trainer.train(restore_path=args.restore_path)
+  File "/home/junjayz/VisualEncoder/trainer.py", line 127, in train
+    self.train_one_epoch()
+  File "/home/junjayz/VisualEncoder/trainer.py", line 35, in train_one_epoch
+    if self.config['cuda']:
+AttributeError: 'Trainer' object has no attribute 'config'

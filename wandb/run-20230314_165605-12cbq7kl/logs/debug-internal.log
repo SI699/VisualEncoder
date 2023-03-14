@@ -1,0 +1,167 @@
+2023-03-14 16:56:06,475 INFO    MainThread:24934 [internal.py:wandb_internal():92] W&B internal server running at pid: 24934, started at: 2023-03-14 16:56:06.474628
+2023-03-14 16:56:06,477 INFO    WriterThread:24934 [datastore.py:open_for_write():77] open: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/run-12cbq7kl.wandb
+2023-03-14 16:56:06,478 DEBUG   SenderThread:24934 [sender.py:send():235] send: header
+2023-03-14 16:56:06,478 DEBUG   SenderThread:24934 [sender.py:send():235] send: run
+2023-03-14 16:56:06,675 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: check_version
+2023-03-14 16:56:06,678 INFO    SenderThread:24934 [dir_watcher.py:__init__():169] watching files in: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files
+2023-03-14 16:56:06,678 INFO    SenderThread:24934 [sender.py:_start_run_threads():812] run started: 12cbq7kl with start time 1678827365
+2023-03-14 16:56:06,678 DEBUG   SenderThread:24934 [sender.py:send():235] send: summary
+2023-03-14 16:56:06,679 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:56:06,679 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: check_version
+2023-03-14 16:56:06,806 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: run_start
+2023-03-14 16:56:07,680 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-summary.json
+2023-03-14 16:56:08,596 DEBUG   HandlerThread:24934 [meta.py:__init__():37] meta init
+2023-03-14 16:56:08,596 DEBUG   HandlerThread:24934 [meta.py:__init__():51] meta init done
+2023-03-14 16:56:08,596 DEBUG   HandlerThread:24934 [meta.py:probe():211] probe
+2023-03-14 16:56:08,609 DEBUG   HandlerThread:24934 [meta.py:_setup_git():201] setup git
+2023-03-14 16:56:08,632 DEBUG   HandlerThread:24934 [meta.py:_setup_git():208] setup git done
+2023-03-14 16:56:08,632 DEBUG   HandlerThread:24934 [meta.py:_save_pip():55] save pip
+2023-03-14 16:56:08,633 DEBUG   HandlerThread:24934 [meta.py:_save_pip():69] save pip done
+2023-03-14 16:56:08,633 DEBUG   HandlerThread:24934 [meta.py:_save_conda():76] save conda
+2023-03-14 16:56:08,682 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/requirements.txt
+2023-03-14 16:56:08,682 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/conda-environment.yaml
+2023-03-14 16:56:12,681 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/output.log
+2023-03-14 16:56:14,384 DEBUG   HandlerThread:24934 [meta.py:_save_conda():86] save conda done
+2023-03-14 16:56:14,384 DEBUG   HandlerThread:24934 [meta.py:probe():249] probe done
+2023-03-14 16:56:14,387 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:56:14,388 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:56:14,539 DEBUG   SenderThread:24934 [sender.py:send():235] send: telemetry
+2023-03-14 16:56:14,539 DEBUG   SenderThread:24934 [sender.py:send():235] send: config
+2023-03-14 16:56:14,540 DEBUG   SenderThread:24934 [sender.py:send():235] send: files
+2023-03-14 16:56:14,540 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2023-03-14 16:56:14,684 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/conda-environment.yaml
+2023-03-14 16:56:14,684 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-metadata.json
+2023-03-14 16:56:15,075 INFO    Thread-11 :24934 [upload_job.py:push():137] Uploaded file /tmp/tmpq4dluonmwandb/26ilbn84-wandb-metadata.json
+2023-03-14 16:56:20,803 DEBUG   SenderThread:24934 [sender.py:send():235] send: files
+2023-03-14 16:56:20,804 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: partial_history
+2023-03-14 16:56:20,804 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file media/images/targer_hanzi_0_be69628f752841296d7a.png with policy now
+2023-03-14 16:56:20,805 DEBUG   SenderThread:24934 [sender.py:send():235] send: files
+2023-03-14 16:56:20,806 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file media/images/generated_hanzi_0_46f21cde7f9990106b27.png with policy now
+2023-03-14 16:56:21,398 INFO    Thread-13 :24934 [upload_job.py:push():137] Uploaded file /tmp/tmpq4dluonmwandb/1qoyjx3a-media/images/generated_hanzi_0_46f21cde7f9990106b27.png
+2023-03-14 16:56:21,413 INFO    Thread-12 :24934 [upload_job.py:push():137] Uploaded file /tmp/tmpq4dluonmwandb/37apqr0e-media/images/targer_hanzi_0_be69628f752841296d7a.png
+2023-03-14 16:56:21,623 DEBUG   SenderThread:24934 [sender.py:send():235] send: telemetry
+2023-03-14 16:56:21,687 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media/images/targer_hanzi_0_be69628f752841296d7a.png
+2023-03-14 16:56:21,687 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media/images/generated_hanzi_0_46f21cde7f9990106b27.png
+2023-03-14 16:56:21,687 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media
+2023-03-14 16:56:21,688 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media/images
+2023-03-14 16:56:22,688 INFO    Thread-7  :24934 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/output.log
+2023-03-14 16:56:23,836 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:23,837 DEBUG   SenderThread:24934 [sender.py:send():235] send: exit
+2023-03-14 16:56:23,837 INFO    SenderThread:24934 [sender.py:send_exit():371] handling exit code: 1
+2023-03-14 16:56:23,838 INFO    SenderThread:24934 [sender.py:send_exit():373] handling runtime: 17
+2023-03-14 16:56:23,838 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:56:23,838 INFO    SenderThread:24934 [sender.py:send_exit():379] send defer
+2023-03-14 16:56:23,839 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:23,839 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,840 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 0
+2023-03-14 16:56:23,840 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,840 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 0
+2023-03-14 16:56:23,840 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 1
+2023-03-14 16:56:23,840 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,840 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 1
+2023-03-14 16:56:23,882 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,883 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 1
+2023-03-14 16:56:23,883 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 2
+2023-03-14 16:56:23,883 DEBUG   SenderThread:24934 [sender.py:send():235] send: stats
+2023-03-14 16:56:23,884 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,884 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 2
+2023-03-14 16:56:23,885 DEBUG   SenderThread:24934 [sender.py:send():235] send: history
+2023-03-14 16:56:23,885 DEBUG   SenderThread:24934 [sender.py:send():235] send: summary
+2023-03-14 16:56:23,885 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:56:23,885 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,885 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 2
+2023-03-14 16:56:23,886 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 3
+2023-03-14 16:56:23,886 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,886 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 3
+2023-03-14 16:56:23,886 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,886 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 3
+2023-03-14 16:56:23,886 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 4
+2023-03-14 16:56:23,886 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,886 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 4
+2023-03-14 16:56:23,887 DEBUG   SenderThread:24934 [sender.py:send():235] send: summary
+2023-03-14 16:56:23,887 INFO    SenderThread:24934 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:56:23,887 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,887 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 4
+2023-03-14 16:56:23,887 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 5
+2023-03-14 16:56:23,887 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:23,887 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 5
+2023-03-14 16:56:23,888 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:23,888 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 5
+2023-03-14 16:56:23,942 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:24,075 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 6
+2023-03-14 16:56:24,076 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:24,076 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:24,076 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 6
+2023-03-14 16:56:24,077 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:24,077 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 6
+2023-03-14 16:56:24,077 INFO    SenderThread:24934 [dir_watcher.py:finish():283] shutting down directory watcher
+2023-03-14 16:56:24,178 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:24,689 INFO    SenderThread:24934 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/output.log
+2023-03-14 16:56:24,689 INFO    SenderThread:24934 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/config.yaml
+2023-03-14 16:56:24,689 INFO    SenderThread:24934 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-summary.json
+2023-03-14 16:56:24,690 INFO    SenderThread:24934 [dir_watcher.py:finish():313] scan: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files
+2023-03-14 16:56:24,690 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/output.log output.log
+2023-03-14 16:56:24,690 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/conda-environment.yaml conda-environment.yaml
+2023-03-14 16:56:24,690 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/config.yaml config.yaml
+2023-03-14 16:56:24,694 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-metadata.json wandb-metadata.json
+2023-03-14 16:56:24,694 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/requirements.txt requirements.txt
+2023-03-14 16:56:24,699 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-summary.json wandb-summary.json
+2023-03-14 16:56:24,704 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media/images/targer_hanzi_0_be69628f752841296d7a.png media/images/targer_hanzi_0_be69628f752841296d7a.png
+2023-03-14 16:56:24,704 INFO    SenderThread:24934 [dir_watcher.py:finish():327] scan save: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/media/images/generated_hanzi_0_46f21cde7f9990106b27.png media/images/generated_hanzi_0_46f21cde7f9990106b27.png
+2023-03-14 16:56:24,704 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 7
+2023-03-14 16:56:24,704 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:24,705 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:24,705 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 7
+2023-03-14 16:56:24,705 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:24,705 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 7
+2023-03-14 16:56:24,705 INFO    SenderThread:24934 [file_pusher.py:finish():145] shutting down file pusher
+2023-03-14 16:56:24,807 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:24,807 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:24,908 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:24,909 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,011 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,011 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,113 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,114 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,194 INFO    Thread-16 :24934 [upload_job.py:push():137] Uploaded file /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/config.yaml
+2023-03-14 16:56:25,195 INFO    Thread-14 :24934 [upload_job.py:push():137] Uploaded file /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/output.log
+2023-03-14 16:56:25,215 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,216 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,218 INFO    Thread-17 :24934 [upload_job.py:push():137] Uploaded file /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/requirements.txt
+2023-03-14 16:56:25,230 INFO    Thread-18 :24934 [upload_job.py:push():137] Uploaded file /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/wandb-summary.json
+2023-03-14 16:56:25,237 INFO    Thread-15 :24934 [upload_job.py:push():137] Uploaded file /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/files/conda-environment.yaml
+2023-03-14 16:56:25,318 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,319 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,421 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,421 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,437 INFO    Thread-6  :24934 [sender.py:transition_state():392] send defer: 8
+2023-03-14 16:56:25,438 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:25,438 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 8
+2023-03-14 16:56:25,438 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:25,439 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 8
+2023-03-14 16:56:25,523 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,814 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 9
+2023-03-14 16:56:25,814 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,814 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:25,815 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 9
+2023-03-14 16:56:25,815 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:25,815 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 9
+2023-03-14 16:56:25,815 INFO    SenderThread:24934 [sender.py:transition_state():392] send defer: 10
+2023-03-14 16:56:25,815 DEBUG   SenderThread:24934 [sender.py:send():235] send: final
+2023-03-14 16:56:25,816 DEBUG   SenderThread:24934 [sender.py:send():235] send: footer
+2023-03-14 16:56:25,816 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: defer
+2023-03-14 16:56:25,816 INFO    HandlerThread:24934 [handler.py:handle_request_defer():164] handle defer: 10
+2023-03-14 16:56:25,816 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: defer
+2023-03-14 16:56:25,816 INFO    SenderThread:24934 [sender.py:send_request_defer():388] handle sender defer: 10
+2023-03-14 16:56:25,916 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: poll_exit
+2023-03-14 16:56:25,916 DEBUG   SenderThread:24934 [sender.py:send_request():249] send_request: poll_exit
+2023-03-14 16:56:25,916 INFO    SenderThread:24934 [file_pusher.py:join():150] waiting for file pusher
+2023-03-14 16:56:26,289 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: sampled_history
+2023-03-14 16:56:26,290 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: get_summary
+2023-03-14 16:56:26,292 DEBUG   HandlerThread:24934 [handler.py:handle_request():141] handle_request: shutdown
+2023-03-14 16:56:26,292 INFO    HandlerThread:24934 [handler.py:finish():790] shutting down handler
+2023-03-14 16:56:26,816 INFO    WriterThread:24934 [datastore.py:close():281] close: /home/junjayz/VisualEncoder/wandb/run-20230314_165605-12cbq7kl/run-12cbq7kl.wandb
+2023-03-14 16:56:27,187 INFO    SenderThread:24934 [sender.py:finish():1107] shutting down sender
+2023-03-14 16:56:27,187 INFO    SenderThread:24934 [file_pusher.py:finish():145] shutting down file pusher
+2023-03-14 16:56:27,187 INFO    SenderThread:24934 [file_pusher.py:join():150] waiting for file pusher
+2023-03-14 16:56:27,191 INFO    MainThread:24934 [internal.py:handle_exit():82] Internal process exited

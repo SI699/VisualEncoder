@@ -1,0 +1,38 @@
+2023-03-14 16:15:01,241 INFO    MainThread:11838 [internal.py:wandb_internal():92] W&B internal server running at pid: 11838, started at: 2023-03-14 16:15:01.240482
+2023-03-14 16:15:01,252 DEBUG   SenderThread:11838 [sender.py:send():235] send: header
+2023-03-14 16:15:01,252 INFO    WriterThread:11838 [datastore.py:open_for_write():77] open: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/run-356onqop.wandb
+2023-03-14 16:15:01,253 DEBUG   SenderThread:11838 [sender.py:send():235] send: run
+2023-03-14 16:15:01,443 DEBUG   HandlerThread:11838 [handler.py:handle_request():141] handle_request: check_version
+2023-03-14 16:15:01,453 INFO    SenderThread:11838 [dir_watcher.py:__init__():169] watching files in: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files
+2023-03-14 16:15:01,454 INFO    SenderThread:11838 [sender.py:_start_run_threads():812] run started: 356onqop with start time 1678824899
+2023-03-14 16:15:01,454 DEBUG   SenderThread:11838 [sender.py:send():235] send: summary
+2023-03-14 16:15:01,454 INFO    SenderThread:11838 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-03-14 16:15:01,455 DEBUG   SenderThread:11838 [sender.py:send_request():249] send_request: check_version
+2023-03-14 16:15:01,586 DEBUG   HandlerThread:11838 [handler.py:handle_request():141] handle_request: run_start
+2023-03-14 16:15:02,464 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/wandb-summary.json
+2023-03-14 16:15:04,384 DEBUG   HandlerThread:11838 [meta.py:__init__():37] meta init
+2023-03-14 16:15:04,384 DEBUG   HandlerThread:11838 [meta.py:__init__():51] meta init done
+2023-03-14 16:15:04,385 DEBUG   HandlerThread:11838 [meta.py:probe():211] probe
+2023-03-14 16:15:04,399 DEBUG   HandlerThread:11838 [meta.py:_setup_git():201] setup git
+2023-03-14 16:15:04,419 DEBUG   HandlerThread:11838 [meta.py:_setup_git():208] setup git done
+2023-03-14 16:15:04,420 DEBUG   HandlerThread:11838 [meta.py:_save_pip():55] save pip
+2023-03-14 16:15:04,422 DEBUG   HandlerThread:11838 [meta.py:_save_pip():69] save pip done
+2023-03-14 16:15:04,422 DEBUG   HandlerThread:11838 [meta.py:_save_conda():76] save conda
+2023-03-14 16:15:04,461 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/conda-environment.yaml
+2023-03-14 16:15:04,462 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/requirements.txt
+2023-03-14 16:15:07,463 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/output.log
+2023-03-14 16:15:10,061 DEBUG   HandlerThread:11838 [meta.py:_save_conda():86] save conda done
+2023-03-14 16:15:10,061 DEBUG   HandlerThread:11838 [meta.py:probe():249] probe done
+2023-03-14 16:15:10,067 DEBUG   HandlerThread:11838 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:15:10,068 DEBUG   SenderThread:11838 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:15:10,221 DEBUG   SenderThread:11838 [sender.py:send():235] send: telemetry
+2023-03-14 16:15:10,221 DEBUG   SenderThread:11838 [sender.py:send():235] send: config
+2023-03-14 16:15:10,222 DEBUG   SenderThread:11838 [sender.py:send():235] send: files
+2023-03-14 16:15:10,222 INFO    SenderThread:11838 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2023-03-14 16:15:10,464 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/conda-environment.yaml
+2023-03-14 16:15:10,465 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_created():217] file/dir created: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/wandb-metadata.json
+2023-03-14 16:15:10,709 INFO    Thread-17 :11838 [upload_job.py:push():137] Uploaded file /tmp/tmp2ebsf_bwwandb/3r9nv1yp-wandb-metadata.json
+2023-03-14 16:15:25,226 DEBUG   HandlerThread:11838 [handler.py:handle_request():141] handle_request: stop_status
+2023-03-14 16:15:25,227 DEBUG   SenderThread:11838 [sender.py:send_request():249] send_request: stop_status
+2023-03-14 16:15:32,478 INFO    Thread-13 :11838 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/junjayz/VisualEncoder/wandb/run-20230314_161459-356onqop/files/config.yaml
+2023-03-14 16:15:32,686 DEBUG   SenderThread:11838 [sender.py:send():235] send: stats

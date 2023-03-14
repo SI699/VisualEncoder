@@ -7,13 +7,12 @@ from PIL import Image
 
 
 class HanziDataset(Dataset):
-
     def __init__(self, data_dir, data_file_name, wrap_size=32):
         '''data_dir (Path): path to the data directory
            transform: torchvision.transforms
         '''
         self.data_dir = data_dir
-        self.transform = transforms.compose(
+        self.transform = transforms.Compose(
             [transforms.Resize((wrap_size, wrap_size)),
              transforms.ToTensor()])
         self.data_df = pd.read_csv(data_dir / data_file_name)
@@ -22,8 +21,8 @@ class HanziDataset(Dataset):
         return len(self.data_df)
 
     def __getitem__(self, idx):
-        img_path = self.data_dir / 'hanzi_img' / self.data_df.iloc[idx,
-                                                                   'image_name']
-        img = Image.open(img_path)
+        img_path = self.data_dir / 'hanzi_img' / self.data_df.loc[idx,
+                                                                  'image_name']
+        img = Image.open(str(img_path)).convert('L')
         img_tensor = self.transform(img)
         return img_tensor

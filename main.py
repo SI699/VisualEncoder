@@ -10,6 +10,7 @@ from dataset import HanziDataset
 from trainer import Trainer
 from utils import set_all_random_seed, set_logger
 from model import create_AutoEncoder
+from metrics import ssim_score
 
 from torch.utils.tensorboard import SummaryWriter
 
@@ -20,7 +21,11 @@ def set_parse():
     parser = configargparse.ArgParser(
         config_file_parser_class=configargparse.YAMLConfigFileParser,
         default_config_files=[config_file_path])
-    parser.add('-c', '--config', is_config_file=True, help='config file path')
+    parser.add('-c',
+               '--config',
+               is_config_file=True,
+               default=config_file_path,
+               help='config file path')
     parser.add_argument('--batch_size',
                         type=int,
                         required=True,
@@ -29,18 +34,6 @@ def set_parse():
                         type=int,
                         required=True,
                         help='The epochs of the training')
-    parser.add_argument('--feature_channels_num',
-                        type=int,
-                        required=True,
-                        help='The number of feature channels')
-    parser.add_argument('--feature_h',
-                        type=int,
-                        required=True,
-                        help='The height of feature map')
-    parser.add_argument('--feature_w',
-                        type=int,
-                        required=True,
-                        help='The width of feature map')
     parser.add_argument('--save_dir',
                         type=str,
                         required=True,
@@ -106,7 +99,7 @@ def create_configs(args):
         'epochs': args.epochs,
         'save_summary_steps': args.save_summary_steps,
         'eval_metric_name': args.eval_metric_name,
-        'momentum_D_backbone': args.momentum_D_backbone,
+        'save_dir': Path(args.save_dir),
     }
 
     return wandb_config, trainer_config
@@ -128,8 +121,8 @@ if __name__ == '__main__':
     wandb.init(project=args.wandb_project, resume=wandb_resume)
     wandb.config.update(wandb_config)
 
-    model = create_ASAIAANet(args)
-    optimizer = optim.Adam(model.regressor.parameters(),
+    model = create_AutoEncoder(args)
+    optimizer = optim.Adam(model.parameters(),
                            weight_decay=args.weight_decay,
                            lr=args.learning_rate)
 
@@ -156,11 +149,11 @@ if __name__ == '__main__':
                                  num_workers=8,
                                  pin_memory=True)
 
-    metrics = None
+    metrics = {'ssim': ssim_score}
     mse_loss = torch.nn.MSELoss()
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
-                                                step_size=5,
-                                                gamma=0.1)
+                                                step_size=20,
+                                                gamma=0.5)
     trainer = Trainer(
         model,
         optimizer,
@@ -170,12 +163,11 @@ if __name__ == '__main__':
         test_dataloader,
         mse_loss,
         metrics,
-        Path(args.save_dir),
         logger,
         trainer_config,
     )
 
     trainer.train(restore_path=args.restore_path)
-    trainer.test()
+    trainer.eval(mode='test')
 
     wandb.finish()

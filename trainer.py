@@ -11,6 +11,8 @@ class Trainer:
     def __init__(self, model, optimizer, scheduler, train_loader, val_loader,
                  test_loader, loss_fn, metrics, logger, configs):
         self.model = model
+        if configs['cuda']:
+            self.model.cuda()
         self.optimizer = optimizer
         self.scheduler = scheduler
         self.train_loader = train_loader
@@ -30,9 +32,9 @@ class Trainer:
         }
         avg_loss = utils.RunningAverage()
 
-        with tqdm(total=len(self.dataloader)) as t:
+        with tqdm(total=len(self.train_loader)) as t:
             for i, img in enumerate(self.train_loader):
-                if self.config['cuda']:
+                if self.configs['cuda']:
                     img = img.cuda()
 
                 self.optimizer.zero_grad()
@@ -56,7 +58,7 @@ class Trainer:
                         avg_metrics_dict[metric].update(val)
                     summary_batch['loss'] = loss.item()
 
-                    if len(self.dataloader
+                    if len(self.train_loader
                            ) - i < self.configs['save_summary_steps']:
                         wandb.log({'train': summary_batch}, commit=False)
                     else:
@@ -82,7 +84,7 @@ class Trainer:
         data_loader = self.val_loader if mode == 'validate' else self.test_loader
         with torch.no_grad():
             for img in tqdm(data_loader):
-                if self.config['cuda']:
+                if self.configs['cuda']:
                     img = img.cuda()
 
                 output = self.model(img)
@@ -105,7 +107,7 @@ class Trainer:
             return summary
 
     def log_metrics(self, metrics_dict, mode='train'):
-        metrics_string = " ; ".join("{}: {:05.3f}".format(k, v)
+        metrics_string = " ; ".join("{}: {}".format(k, str(v))
                                     for k, v in metrics_dict.items())
         self.log(f"***** {mode.capitalize()} metrics: " + metrics_string)
 
@@ -121,9 +123,10 @@ class Trainer:
             start_epoch = utils.load_checkpoint(restore_path, self.model,
                                                 self.optimizer_R,
                                                 self.optimizer_D)
-        best_val_metric = float('inf')
+        best_val_metric = 0
 
-        for epoch in range(start_epoch, self.configs['num_epochs']):
+        for epoch in range(start_epoch, self.configs['epochs']):
+            print('epoch: ', epoch)
             self.train_one_epoch()
             val_metrics = self.eval('validate')
             if self.scheduler is not None:
@@ -138,11 +141,12 @@ class Trainer:
                     'scheduler_dict': self.scheduler.state_dict()
                 },
                 is_best=is_best,
-                checkpoint=self.save_dir)
+                checkpoint=self.configs['save_dir'])
             if is_best:
                 self.log(
                     f"***** New best {self.configs['eval_metric_name']}: {val_metrics[self.configs['eval_metric_name']]} *****"
                 )
                 best_val_metric = val_metrics[self.configs['eval_metric_name']]
-                best_json_path = self.save_dir / "best_val_metrics.json"
+                best_json_path = self.configs[
+                    'save_dir'] / "best_val_metrics.json"
                 utils.save_dict_to_json(val_metrics, best_json_path)

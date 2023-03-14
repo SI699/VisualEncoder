@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.31",
+    "python": "3.9.5",
+    "heartbeatAt": "2023-03-14T20:18:59.374045",
+    "startedAt": "2023-03-14T20:18:54.660405",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/junjayz/VisualEncoder/main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "git@github.com:SI699/VisualEncoder.git",
+        "commit": "d28cf554f9cf32a081fe4ba403e782b4343ed164"
+    },
+    "email": "junj.jay.zhang@gmail.com",
+    "root": "/home/junjayz/VisualEncoder",
+    "host": "LAPTOP-U11CDSA7",
+    "username": "junjayz",
+    "executable": "/home/junjayz/miniconda3/bin/python"
+}
