@@ -6,7 +6,7 @@ from pathlib2 import Path
 from torch.utils.data import DataLoader
 from torch import optim
 
-from dataset import AVADatasetEmp
+from dataset import HanziDataset
 from trainer import Trainer
 from utils import set_all_random_seed, set_logger
 from model import create_ASAIAANet
@@ -14,6 +14,7 @@ from model import create_ASAIAANet
 from torch.utils.tensorboard import SummaryWriter
 
 
+# TODO enable define model by args
 def set_parse():
     config_file_path = './config/config.yml'
     parser = configargparse.ArgParser(
@@ -133,21 +134,21 @@ if __name__ == '__main__':
 
     data_dir = Path(args.data_dir)
 
-    train_data = AVADatasetEmp('train.pickle', data_dir, args.wrap_size)
+    train_data = HanziDataset(data_dir, 'train.csv', args.wrap_size)
     train_dataloader = DataLoader(train_data,
                                   batch_size=args.batch_size,
                                   shuffle=True,
                                   num_workers=4,
                                   pin_memory=True)
 
-    val_data = AVADatasetEmp('val.pickle', data_dir, args.wrap_size)
+    val_data = HanziDataset(data_dir, 'val.csv', args.wrap_size)
     val_dataloader = DataLoader(val_data,
                                 batch_size=args.batch_size,
                                 shuffle=False,
                                 num_workers=8,
                                 pin_memory=True)
 
-    test_data = AVADatasetEmp('test.pickle', data_dir, args.wrap_size)
+    test_data = HanziDataset(data_dir, 'test.csv', args.wrap_size)
     test_dataloader = DataLoader(test_data,
                                  batch_size=1,
                                  shuffle=False,
