@@ -29,7 +29,6 @@ def set_all_random_seed(seed, rank=0):
 class RunningAverage():
     """A simple class that maintains the running average of a quantity
     """
-
     def __init__(self):
         self.steps = 0
         self.total = 0
@@ -127,7 +126,7 @@ def load_best_checkpoint(save_dir, model):
     return
 
 
-def load_checkpoint(checkpoint_path, model, optimizer=None):
+def load_checkpoint(checkpoint_path, model, optimizer=None, scheduler=None):
     """Loads model parameters (state_dict) from file_path. If optimizer is provided, loads state_dict of
     optimizer assuming it is present in checkpoint.
 
@@ -143,7 +142,9 @@ def load_checkpoint(checkpoint_path, model, optimizer=None):
     model.load_state_dict(checkpoint['state_dict'])
 
     if optimizer:
-        optimizer.load_state_dict(checkpoint['optim_R_dict'])
+        optimizer.load_state_dict(checkpoint['optim_dict'])
+    if scheduler:
+        scheduler.load_state_dict(checkpoint['scheduler_dict'])
 
     return checkpoint['epoch']
 

@@ -1,5 +1,5 @@
 batch_size: 128
-epochs: 400
+epochs: 200
 wrap_size: 32
 seed: 42
 save_dir: ./experiments/
@@ -8,4 +8,9 @@ weight_decay: 1e-15
 save_summary_steps: 100
 data_dir: ./data
 eval_metric_name: ssim
-wandb_project: test
+wandb_project: visual_encoder_naive
+scheduler_config:
+  type: StepLR
+  args:
+    step_size: 25
+    gamma: 0.5

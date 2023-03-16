@@ -1,6 +1,8 @@
 import configargparse
 import torch
 import wandb
+import utils
+import json
 
 from pathlib2 import Path
 from torch.utils.data import DataLoader
@@ -11,8 +13,6 @@ from trainer import Trainer
 from utils import set_all_random_seed, set_logger
 from model import create_AutoEncoder
 from metrics import ssim_score, psnr_score
-
-from torch.utils.tensorboard import SummaryWriter
 
 
 # TODO enable define model by args
@@ -79,6 +79,9 @@ def set_parse():
         '--restore_path',
         type=str,
         help='the path to the saved checkpoint file for restore training')
+    parser.add_argument('--scheduler_config',
+                        type=eval,
+                        help='the config of the scheduler')
 
     return parser
 
@@ -92,6 +95,7 @@ def create_configs(args):
         'wrap_size': args.wrap_size,
         'seed': args.seed,
         'eval_metric_name': args.eval_metric_name,
+        'scheduler_config': args.scheduler_config
     }
 
     trainer_config = {
@@ -151,9 +155,9 @@ if __name__ == '__main__':
 
     metrics = {'ssim': ssim_score, 'psnr': psnr_score}
     mse_loss = torch.nn.MSELoss()
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
-                                                step_size=20,
-                                                gamma=0.5)
+    scheduler = torch.optim.lr_scheduler.__dict__[
+        args.scheduler_config['type']](optimizer,
+                                       **args.scheduler_config['args'])
     trainer = Trainer(
         model,
         optimizer,
@@ -168,6 +172,7 @@ if __name__ == '__main__':
     )
 
     trainer.train(restore_path=args.restore_path)
+    utils.load_best_checkpoint(trainer_config['save_dir'], trainer.model)
     trainer.eval(mode='test')
 
     wandb.finish()

@@ -121,8 +121,7 @@ class Trainer:
         start_epoch = 0
         if restore_path is not None:
             start_epoch = utils.load_checkpoint(restore_path, self.model,
-                                                self.optimizer_R,
-                                                self.optimizer_D)
+                                                self.optimizer, self.scheduler)
         best_val_metric = 0
 
         for epoch in range(start_epoch, self.configs['epochs']):
@@ -132,13 +131,13 @@ class Trainer:
             if self.scheduler is not None:
                 self.scheduler.step()
             is_best = val_metrics[
-                self.configs['eval_metric_name']] < best_val_metric
+                self.configs['eval_metric_name']] > best_val_metric
             utils.save_checkpoint(
                 {
                     'epoch': epoch + 1,
                     'state_dict': self.model.state_dict(),
                     'optim_dict': self.optimizer.state_dict(),
-                    'scheduler_dict': self.scheduler.state_dict()
+                    'scheduler_dict': self.scheduler.state_dict(),
                 },
                 is_best=is_best,
                 checkpoint=self.configs['save_dir'])
