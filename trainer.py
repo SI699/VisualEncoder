@@ -102,8 +102,14 @@ class Trainer:
                 for metric in avg_metrics_dict
             }
             summary['loss'] = avg_loss()
-            wandb.log({mode: summary})
             self.log_metrics(summary, mode)
+            summary['targer_hanzi'] = utils.make_grid(torch.tensor(img),
+                                                      'target hanzi')
+            summary['generated_hanzi'] = utils.make_grid(
+                torch.tensor(output), 'generated hanzi')
+            wandb.log({mode: summary})
+            summary.pop('targer_hanzi')
+            summary.pop('generated_hanzi')
             return summary
 
     def log_metrics(self, metrics_dict, mode='train'):

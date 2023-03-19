@@ -82,6 +82,7 @@ def set_parse():
     parser.add_argument('--scheduler_config',
                         type=eval,
                         help='the config of the scheduler')
+    parser.add('--model', required=True, help='The model to be used', type=eval)
 
     return parser
 
@@ -95,7 +96,8 @@ def create_configs(args):
         'wrap_size': args.wrap_size,
         'seed': args.seed,
         'eval_metric_name': args.eval_metric_name,
-        'scheduler_config': args.scheduler_config
+        'scheduler_config': args.scheduler_config,
+        'model': args.model,
     }
 
     trainer_config = {
@@ -125,7 +127,7 @@ if __name__ == '__main__':
     wandb.init(project=args.wandb_project, resume=wandb_resume)
     wandb.config.update(wandb_config)
 
-    model = create_AutoEncoder(args)
+    model = create_AutoEncoder(args.model)
     optimizer = optim.Adam(model.parameters(),
                            weight_decay=args.weight_decay,
                            lr=args.learning_rate)
