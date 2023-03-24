@@ -26,22 +26,29 @@ def set_all_random_seed(seed, rank=0):
     torch.backends.cudnn.benchmark = False
 
 
-class RunningAverage():
-    """A simple class that maintains the running average of a quantity
-    """
-    def __init__(self):
-        self.steps = 0
-        self.total = 0
+class AverageMeter(object):
+    """Computes and stores the average and current value"""
 
-    def update(self, val):
-        self.total += val
-        self.steps += 1
+    def __init__(self, fmt=':f'):
+        self.fmt = fmt
+        self.reset()
 
-    def __call__(self):
-        return self.total / float(self.steps)
+    def reset(self):
+        self.sum = 0
+        self.count = 0
+
+    def update(self, val, n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
 
     def __str__(self):
-        return str(self.total / float(self.steps))
+        avg = self.sum / self.count
+        fmtstr = '{val' + self.fmt + '} ({avg' + self.fmt + '})'
+        return fmtstr.format(val=self.val, avg=avg)
+
+    def __call__(self):
+        return self.sum / self.count
 
 
 def set_logger(log_path, level=logging.INFO):
@@ -106,7 +113,7 @@ def save_checkpoint(state, is_best, checkpoint):
     if not checkpoint.exists():
         print("Checkpoint Directory does not exist! Making directory {}".format(
             checkpoint))
-        checkpoint.mkdir(parent=True)
+        checkpoint.mkdir(parents=True)
 
     filepath = str(filepath)
     torch.save(state, filepath)

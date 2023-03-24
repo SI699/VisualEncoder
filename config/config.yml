@@ -3,7 +3,7 @@ epochs: 200
 wrap_size: 32
 seed: 42
 save_dir: ./experiments/
-learning_rate: 0.01
+learning_rate: 0.005
 weight_decay: 1e-15
 save_summary_steps: 100
 data_dir: ./data
@@ -12,8 +12,9 @@ wandb_project: visual_encoder_naive
 scheduler_config:
   type: StepLR
   args:
-    step_size: 25
+    step_size: 15
     gamma: 0.5
+font: STSONG
 
 # define the auto-encoder
 model:

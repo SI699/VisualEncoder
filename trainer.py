@@ -27,10 +27,10 @@ class Trainer:
         self.model.train()
 
         avg_metrics_dict = {
-            metric: utils.RunningAverage()
+            metric: utils.AverageMeter()
             for metric in self.metrics
         }
-        avg_loss = utils.RunningAverage()
+        avg_loss = utils.AverageMeter()
 
         with tqdm(total=len(self.train_loader)) as t:
             for i, img in enumerate(self.train_loader):
@@ -55,7 +55,7 @@ class Trainer:
                     for metric in self.metrics:
                         val = self.metrics[metric](output, img)
                         summary_batch[metric] = val
-                        avg_metrics_dict[metric].update(val)
+                        avg_metrics_dict[metric].update(val, img.shape[0])
                     summary_batch['loss'] = loss.item()
 
                     if len(self.train_loader
@@ -64,7 +64,7 @@ class Trainer:
                     else:
                         wandb.log({'train': summary_batch})
 
-                avg_loss.update(loss.item())
+                avg_loss.update(loss.item(), img.shape[0])
                 t.set_postfix(loss=avg_loss, **avg_metrics_dict)
                 t.update()
 
@@ -75,41 +75,44 @@ class Trainer:
         # TODO: enable upload image to wandb
         self.model.eval()
 
-        avg_loss = utils.RunningAverage()
+        avg_loss = utils.AverageMeter()
         avg_metrics_dict = {
-            metric: utils.RunningAverage()
+            metric: utils.AverageMeter()
             for metric in self.metrics
         }
 
         data_loader = self.val_loader if mode == 'validate' else self.test_loader
+
+        summary = {}
         with torch.no_grad():
-            for img in tqdm(data_loader):
+            for i, img in tqdm(enumerate(data_loader)):
                 if self.configs['cuda']:
                     img = img.cuda()
 
                 output = self.model(img)
                 loss = self.loss_fn(output, img)
-                avg_loss.update(loss.item())
+                avg_loss.update(loss.item(), img.shape[0])
+
+                if i == 0:
+                    summary['targer_hanzi'] = utils.make_grid(
+                        img, 'target hanzi')
+                    summary['generated_hanzi'] = utils.make_grid(
+                        output, 'generated hanzi')
 
                 output = output.cpu().numpy()
                 img = img.cpu().numpy()
 
                 for metric in self.metrics:
-                    avg_metrics_dict[metric].update(self.metrics[metric](output,
-                                                                         img))
-            summary = {
-                metric: avg_metrics_dict[metric]()
-                for metric in avg_metrics_dict
-            }
+                    avg_metrics_dict[metric].update(
+                        self.metrics[metric](output, img), img.shape[0])
+
+            for metric in self.metrics:
+                summary[metric] = avg_metrics_dict[metric]()
             summary['loss'] = avg_loss()
-            self.log_metrics(summary, mode)
-            summary['targer_hanzi'] = utils.make_grid(torch.tensor(img),
-                                                      'target hanzi')
-            summary['generated_hanzi'] = utils.make_grid(
-                torch.tensor(output), 'generated hanzi')
             wandb.log({mode: summary})
             summary.pop('targer_hanzi')
             summary.pop('generated_hanzi')
+            self.log_metrics(summary, mode)
             return summary
 
     def log_metrics(self, metrics_dict, mode='train'):

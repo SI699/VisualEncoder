@@ -83,6 +83,7 @@ def set_parse():
                         type=eval,
                         help='the config of the scheduler')
     parser.add('--model', required=True, help='The model to be used', type=eval)
+    parser.add('--font', required=True, help='The font to be used', type=str)
 
     return parser
 
@@ -98,6 +99,7 @@ def create_configs(args):
         'eval_metric_name': args.eval_metric_name,
         'scheduler_config': args.scheduler_config,
         'model': args.model,
+        'font': args.font,
     }
 
     trainer_config = {
@@ -105,7 +107,7 @@ def create_configs(args):
         'epochs': args.epochs,
         'save_summary_steps': args.save_summary_steps,
         'eval_metric_name': args.eval_metric_name,
-        'save_dir': Path(args.save_dir),
+        'save_dir': Path(args.save_dir) / args.font,
     }
 
     return wandb_config, trainer_config
@@ -134,7 +136,7 @@ if __name__ == '__main__':
 
     data_dir = Path(args.data_dir)
 
-    train_data = HanziDataset(data_dir, 'train.csv', args.wrap_size)
+    train_data = HanziDataset(data_dir, 'train.csv', args.wrap_size, args.font)
     train_dataloader = DataLoader(train_data,
                                   batch_size=args.batch_size,
                                   shuffle=True,
@@ -150,7 +152,7 @@ if __name__ == '__main__':
 
     test_data = HanziDataset(data_dir, 'test.csv', args.wrap_size)
     test_dataloader = DataLoader(test_data,
-                                 batch_size=1,
+                                 batch_size=args.batch_size,
                                  shuffle=False,
                                  num_workers=8,
                                  pin_memory=True)
