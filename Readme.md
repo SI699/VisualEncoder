@@ -1,4 +1,4 @@
-#VisualEncoder
+# VisualEncoder
 This projects aims to train a auto-encoder to grab the visual features of Chinese characters (Hanzi).
 ## Usage
 ### Generate dataset
